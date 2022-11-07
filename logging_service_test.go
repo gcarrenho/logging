@@ -6,9 +6,6 @@ import (
 	"os/exec"
 
 	"testing"
-
-	"github.com/gcarrenho/logging/internal/models"
-	"github.com/gcarrenho/logging/src/internal/pkg"
 )
 
 func TestPanic(t *testing.T) {
@@ -20,13 +17,13 @@ func TestPanic(t *testing.T) {
 	}()
 	tests := []struct {
 		name string
-		log  *models.Logging
+		log  *Logging
 	}{
 		{
 			name: "Should get media succesfully",
-			log: &models.Logging{
-				Index:    pkg.StringToPointer("test" + "-" + os.Getenv("ENVIRONMENT")),
-				LabelApp: pkg.StringToPointer("test"),
+			log: &Logging{
+				Index:    StringToPointer("test" + "-" + os.Getenv("ENVIRONMENT")),
+				LabelApp: StringToPointer("test"),
 				Message:  "Test",
 			},
 		},
@@ -49,13 +46,13 @@ func TestDebug(t *testing.T) {
 	os.Setenv("ENVIRONMENT", "TEST")
 	tests := []struct {
 		name string
-		log  *models.Logging
+		log  *Logging
 	}{
 		{
 			name: "Should log debug",
-			log: &models.Logging{
-				Index:    pkg.StringToPointer("test" + "-" + os.Getenv("ENVIRONMENT")),
-				LabelApp: pkg.StringToPointer("test"),
+			log: &Logging{
+				Index:    StringToPointer("test" + "-" + os.Getenv("ENVIRONMENT")),
+				LabelApp: StringToPointer("test"),
 				Message:  "Test",
 			},
 		},
@@ -80,13 +77,13 @@ func TestFatal(t *testing.T) {
 	os.Setenv("ENVIRONMENT", "TEST")
 	tests := []struct {
 		name string
-		log  *models.Logging
+		log  *Logging
 	}{
 		{
 			name: "Should log Fatal",
-			log: &models.Logging{
-				Index:    pkg.StringToPointer("test" + "-" + os.Getenv("ENVIRONMENT")),
-				LabelApp: pkg.StringToPointer("test"),
+			log: &Logging{
+				Index:    StringToPointer("test" + "-" + os.Getenv("ENVIRONMENT")),
+				LabelApp: StringToPointer("test"),
 				Message:  "Test",
 			},
 		},
@@ -121,13 +118,13 @@ func TestWarn(t *testing.T) {
 	os.Setenv("ENVIRONMENT", "TEST")
 	tests := []struct {
 		name string
-		log  *models.Logging
+		log  *Logging
 	}{
 		{
 			name: "Should log Warn",
-			log: &models.Logging{
-				Index:    pkg.StringToPointer("test" + "-" + os.Getenv("ENVIRONMENT")),
-				LabelApp: pkg.StringToPointer("test"),
+			log: &Logging{
+				Index:    StringToPointer("test" + "-" + os.Getenv("ENVIRONMENT")),
+				LabelApp: StringToPointer("test"),
 				Message:  "Test",
 			},
 		},
@@ -151,13 +148,13 @@ func TestInfo(t *testing.T) {
 	os.Setenv("ENVIRONMENT", "TEST")
 	tests := []struct {
 		name string
-		log  *models.Logging
+		log  *Logging
 	}{
 		{
 			name: "Should log Info",
-			log: &models.Logging{
-				Index:    pkg.StringToPointer("test" + "-" + os.Getenv("ENVIRONMENT")),
-				LabelApp: pkg.StringToPointer("test"),
+			log: &Logging{
+				Index:    StringToPointer("test" + "-" + os.Getenv("ENVIRONMENT")),
+				LabelApp: StringToPointer("test"),
 				Message:  "Test",
 			},
 		},
@@ -180,13 +177,13 @@ func TestError(t *testing.T) {
 	os.Setenv("ENVIRONMENT", "TEST")
 	tests := []struct {
 		name string
-		log  *models.Logging
+		log  *Logging
 	}{
 		{
 			name: "Should log error",
-			log: &models.Logging{
-				Index:    pkg.StringToPointer("test" + "-" + os.Getenv("ENVIRONMENT")),
-				LabelApp: pkg.StringToPointer("test"),
+			log: &Logging{
+				Index:    StringToPointer("test" + "-" + os.Getenv("ENVIRONMENT")),
+				LabelApp: StringToPointer("test"),
 				Message:  "Test",
 			},
 		},
